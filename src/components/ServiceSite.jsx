@@ -1,41 +1,36 @@
 // src/components/ServiceSite.jsx
-import { useNavigate, Link } from "react-router-dom";
-import logoWhite from "../assets/microsoft.png";
+import logoWhite from "../assets/barbershop.png";
 
 export default function ServiceSite() {
-  const navigate = useNavigate();
+  const externalUrl = "https://barbershop-three-woad.vercel.app/";
 
   return (
     <section
-      onClick={() => navigate("/projects")}
+      onClick={() => (window.location.href = externalUrl)}  // whole card is a link
       className="
-        relative                  
-        h-[85vh]                  
-        bg-black                
-        cursor-pointer            
+        relative
+        h-[85vh]
+        bg-black
+        cursor-pointer
       "
     >
-      {/** 1) Corner‐pinned, thin‐font text **/}
+      {/* 1) Corner‑pinned heading */}
       <div className="absolute top-8 left-8 z-10 max-w-sm">
-        <h2 className="text-white text-2xl uppercase font-thin">
-          SERVICE SITE
-        </h2>
+        <h2 className="text-white text-2xl uppercase font-thin">Barbershop</h2>
         <p className="mt-2 text-white font-thin leading-relaxed">
-          Product making and distribution + Services
+          Being sharp never goes out of style.
         </p>
       </div>
 
-      {/** 2) Centered logo **/}
+      {/* 2) Centered logo (also links out) */}
       <div className="absolute inset-0 z-0 flex items-center justify-center">
-        <Link to="/projects">
-          <img
-            src={logoWhite}
-            alt="Microsoft logo"
-            className="h-16 w-16"
-          />
-        </Link>
+        <a href={externalUrl}>
+          <img src={logoWhite} alt="Barbershop logo" className="h-46 w-46" />
+        </a>
       </div>
-      <Link to="/projects" className="absolute inset-0 z-0" />
+
+      {/* 3) Invisible full‑cover anchor for keyboard users / SEO */}
+      <a href={externalUrl} className="absolute inset-0 z-0" aria-label="Open Barbershop site" />
     </section>
   );
 }
