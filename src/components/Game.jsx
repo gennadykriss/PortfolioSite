@@ -1,13 +1,12 @@
 // src/components/Game.jsx
-import { useNavigate, Link } from "react-router-dom";
 import gameImage from "../assets/game.png";
 
 export default function Game() {
-  const navigate = useNavigate();
+  const externalUrl = "https://neuromatch-beta.vercel.app/";
 
   return (
     <section
-      onClick={() => navigate("/projects")}
+      onClick={() => (window.location.href = externalUrl)}
       className="
         relative               
         h-[85vh]               
@@ -20,13 +19,18 @@ export default function Game() {
 
       {/* Corner-pinned, thin-font text */}
       <div className="absolute top-8 left-8 z-10 max-w-sm">
-        <h2 className="text-white text-2xl uppercase font-thin">GAME</h2>
+        <h2 className="text-white text-2xl uppercase font-thin">NeuroMatch</h2>
         <p className="mt-2 text-white font-thin leading-relaxed">
-          Game UI + Characters
+          Memory Matching Game
         </p>
       </div>
 
-      <Link to="/projects" className="absolute inset-0 z-0" />
+      <a
+        href={externalUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute inset-0 z-0"
+        />
     </section>
   );
 }
