@@ -1,12 +1,11 @@
-import { useNavigate, Link } from "react-router-dom";
 import ecommerce from "../assets/e-commerce.png";
 
 export default function Ecommerce() {
-  const navigate = useNavigate();
+  const externalUrl = "https://e-commerce-tau-rose-47.vercel.app/";
 
   return (
     <section
-      onClick={() => navigate("/projects")}
+      onClick={() => window.location.href = externalUrl}
       className="
         relative                  
         h-[85vh]                  
@@ -27,17 +26,14 @@ export default function Ecommerce() {
 
       {/** 2) Centered logo **/}
       <div className="relative z-0 flex items-start justify-center h-full">
-        <Link to="/projects">
+        <a href={externalUrl}>
           <img
             src={ecommerce}
             alt="E-Commerce logo"
             className="h-full w-auto object-contain"
           />
-        </Link>
+        </a>
       </div>
-
-      <Link to="/projects" className="absolute inset-0 z-0" />
     </section>
   );
 }
-
